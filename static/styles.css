@@ -1,0 +1,141 @@
+body {
+  background: linear-gradient(135deg, #3c1053, #ad5389);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+}
+.prediction-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+}
+h1 {
+  color: #3c1053;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.team-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.custom-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+.btn-predict {
+  background-color: #3c1053;
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+.btn-predict:hover {
+  background-color: #ad5389;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#result {
+  transition: all 0.3s ease;
+}
+
+/* Bouncing Balls Animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.BOUNCING-BALLS {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.BOUNCING-BALLS div {
+  width: 15px;
+  height: 15px;
+  background-color: #3c1053;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.BOUNCING-BALLS div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.BOUNCING-BALLS div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+#result-card {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#result-card .card-body {
+  padding: 2rem;
+}
+
+#result-card h5.card-title {
+  color: #3c1053;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  font-size: 1.8rem; /* Increased font size */
+}
+
+#result-card p.card-text {
+  font-size: 1.2rem; /* Increased font size for general card text */
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+#result-card h6 {
+  color: #ad5389;
+  font-weight: bold;
+  font-size: 1.5rem; /* Increased font size for reasons header */
+}
+
+#reasons-list .list-group-item {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 0.75rem 1.25rem; /* Adjusted padding */
+  font-size: 1.2rem; /* Increased font size for list items */
+  color: #3c1053;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center; /* Align items vertically */
+  transition: transform 0.2s;
+}
+
+#reasons-list .list-group-item:hover {
+  transform: translateY(-3px);
+}
+
+#reasons-list .list-group-item::before {
+  content: "•";
+  color: #ad5389;
+  font-weight: bold;
+  font-size: 2rem; /* Increased bullet size */
+  margin-right: 10px;
+  line-height: 1; /* Ensure bullet is centered vertically */
+}
+
+#reasons-list .list-group-item::before {
+  content: none; /* Ensures the custom bullet (which bootstrap does automatically) is removed. */
+}

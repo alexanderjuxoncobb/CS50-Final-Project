@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premier League Prediction Tool</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 prediction-container">
+          <h1 class="text-center mb-4">Premier League Prediction Tool</h1>
+          <form id="prediction-form">
+            <div class="mb-4">
+              <label for="team-select" class="form-label">Select teams:</label>
+              <div class="d-flex">
+                <select
+                  class="form-select custom-select w-50 me-3"
+                  id="team1-select"
+                  required
+                  <option value="" selected disabled>Choose a team</option>
+                  <option
+                    value="arsenal"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Arsenal
+                  </option>
+                  <option
+                    value="aston-villa"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Aston Villa
+                  </option>
+                  <option
+                    value="afc-bournemouth"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    AFC Bournemouth
+                  </option>
+                  <option
+                    value="brighton-and-hove-albion"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Brighton and Hove Albion
+                  </option>
+                  <option
+                    value="brentford"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Brentford
+                  </option>
+                  <option
+                    value="burnley"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Burnley
+                  </option>
+                  <option
+                    value="chelsea"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Chelsea
+                  </option>
+                  <option
+                    value="crystal-palace"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Crystal Palace
+                  </option>
+                  <option
+                    value="everton"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Everton
+                  </option>
+                  <option
+                    value="fulham"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Fulham
+                  </option>
+                  <option
+                    value="liverpool"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Liverpool
+                  </option>
+                  <option
+                    value="luton-town"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Luton Town
+                  </option>
+                  <option
+                    value="manchester-city"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Manchester City
+                  </option>
+                  <option
+                    value="manchester-united"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Manchester United
+                  </option>
+                  <option
+                    value="newcastle-united"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Newcastle United
+                  </option>
+                  <option
+                    value="nottingham-forest"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Nottingham Forest
+                  </option>
+                  <option
+                    value="sheffield-united"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Sheffield United
+                  </option>
+                  <option
+                    value="tottenham-hotspur"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Tottenham Hotspur
+                  </option>
+                  <option
+                    value="west-ham-united"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    West Ham United
+                  </option>
+                  <option
+                    value="wolverhampton-wanderers"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Wolverhampton Wanderers
+                  </option>
+                </select>
+
+                <select
+                  class="form-select custom-select w-50 me-3"
+                  id="team2-select"
+                  required
+                >
+                  <option value="" selected disabled>Choose a team</option>
+                  <option
+                    value="arsenal"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Arsenal
+                  </option>
+                  <option
+                    value="aston-villa"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Aston Villa
+                  </option>
+                  <option
+                    value="afc-bournemouth"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    AFC Bournemouth
+                  </option>
+                  <option
+                    value="brighton-and-hove-albion"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Brighton and Hove Albion
+                  </option>
+                  <option
+                    value="brentford"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Brentford
+                  </option>
+                  <option
+                    value="burnley"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Burnley
+                  </option>
+                  <option
+                    value="chelsea"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Chelsea
+                  </option>
+                  <option
+                    value="crystal-palace"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Crystal Palace
+                  </option>
+                  <option
+                    value="everton"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Everton
+                  </option>
+                  <option
+                    value="fulham"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Fulham
+                  </option>
+                  <option
+                    value="liverpool"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Liverpool
+                  </option>
+                  <option
+                    value="luton-town"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Luton Town
+                  </option>
+                  <option
+                    value="manchester-city"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Manchester City
+                  </option>
+                  <option
+                    value="manchester-united"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Manchester United
+                  </option>
+                  <option
+                    value="newcastle-united"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Newcastle United
+                  </option>
+                  <option
+                    value="nottingham-forest"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Nottingham Forest
+                  </option>
+                  <option
+                    value="sheffield-united"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Sheffield United
+                  </option>
+                  <option
+                    value="tottenham-hotspur"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Tottenham Hotspur
+                  </option>
+                  <option
+                    value="west-ham-united"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    West Ham United
+                  </option>
+                  <option
+                    value="wolverhampton-wanderers"
+                    data-logo="https://i.postimg.cc/jSNT2BX5/england-premier-league-logo-on-transparent-background-free-vector.jpg"
+                  >
+                    Wolverhampton Wanderers
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" id="new-one" class="btn btn-primary btn-predict">
+                Get Prediction
+              </button>
+              
+              <!-- Loading animation -->
+              <div id="loading" class="BOUNCING-BALLS" style="display: none; margin-top: 30px;">
+                <div></div>
+                <div></div>
+                <div></div>
+
+              </div>
+            </div>
+            </div>
+          </form>
+
+          <!-- Result Card -->
+          <div id="result-card" class="card mt-4" style="display: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+              <h5 class="card-title text-center" style="color: #3c1053; font-weight: bold; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);">Match Prediction</h5>
+              <p class="card-text text-center">
+                <span id="no-game" style="display: none;"></span>
+              </p>
+              <p class="card-text text-center" id="game-details">
+                <strong>Date:</strong> <span id="match-date"></span><br>
+                <strong>Home Team:</strong> <span id="home-team"></span><br>
+                <strong>Winner:</strong> <span id="winner" class="badge"></span><br> <!-- Ensures it is only badge success when it is actually a success -->
+              </p>
+              <h6 class="mt-4 text-center" id="reasons-list" style="color: #ad5389; font-weight: bold;">Reasons:</h6>
+              <ul id="reasons-list" class="list-group list-group-flush mt-3"> <!-- The .no-bullets could be added in class -->
+                <!-- Reasons will be populated here -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
