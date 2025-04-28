@@ -1,17 +1,46 @@
-# CS50 Final Project
+# CS50 Final Project: Premier League Prediction Tool
 
-Demo Video URL: https://youtu.be/pvGclr8v-_s?si=L8Eoug4kJaxsbLFH
+A web application that leverages web scraping and AI to predict outcomes of upcoming Premier League football matches.
 
-TL;DR:
+## [Demo Video](https://youtu.be/pvGclr8v-_s?si=L8Eoug4kJaxsbLFH)
 
-A webapp that scrapes the internet to make an informed decision on who will win an upcoming football match in the premier league. I parse information from sources such as the current table rankings alongside recent BBC articles and YouTube comments for the two teams selected. This is then sent to the OpenAI API, which returns the match date, who is playing at home, the predicted winner and 3 reasons for making this prediction.
+## Overview
 
-Full Description:
+This application scrapes multiple data sources to gather relevant information about selected Premier League teams, including:
+- Current table rankings
+- ELO ratings
+- Recent BBC news articles
+- YouTube comments from Sky Sports Premier League videos
 
-I wanted to practice techniques such as webscaping and making an API call, so I decided on making a prediction tool for the english premier league. Users must select 2 teams from a dropdown and then click 'Get Prediction'. There is some error catching in place incase a match is not scheduled in the near future (and therefore not being picked up when scraping the fixtures from Sky Sports) or the same team selected in both dropdowns. The webpage is written in index.html and uses bootstrap and some custom CSS for the styling.
+The collected data is then processed through OpenAI's API to generate a prediction including:
+- Match date
+- Home team advantage
+- Predicted winner
+- Three supporting reasons for the prediction
 
-Once 'Get Prediction' is submited, my script.js file sends a request to app.py, where my flask @app.route() routing is writen. Going through the '/predict' route (which is called via fetch("http://127.0.0.1:5000/predict") in my script.js) calls main.py which is where the scraping and OpenAI API call takes place. In main.py I call multiple functions from helpers.py which return important information such as current rankings and ELO ratings, alongside content from recent BBC articles and the top comments under Sky Sports Premier League YouTube videos mentioning either team. This is then passed into a dictionary 'final_data' which is sent to the OpenAI API along with the some prompting that it is a professional football analyst who has been tasked with predicting the outcome of an upcoming match, based on the information provided.
+## Technical Implementation
 
-Once the JSON response has been received it is passed back to script.js, which has been waiting for the response using async / await functionality. Script.js changes the display of some HTML elements (from "none" to "block" AKA visible) and passes in the relevant information from the JSON response. A user can then, once they read this information, change the team in the dropdown menu to reveal the 'Get Prediction' button again and re-run the script with different teams.
+### Frontend
+- HTML/CSS with Bootstrap for responsive design
+- JavaScript for dynamic content and asynchronous API calls
 
-A slight caveat of this project is its lack of refinement--the information being scraped is surface level and the biggest predictor of a winner is the ELO rating. Additionally, betting sites have much more refined models so simply returning their odds would enhance (and probably dominate) my predictions. However, the aim of this project wasn't to beat the market! It was to practice the ideas I learnt in CS50 and apply them to build a real-world piece of software. In this regard, it's been a great success and I've learnt a lot.
+### Backend
+- Flask web framework for routing
+- Python-based web scraping
+- OpenAI API integration for prediction generation
+
+### Project Structure
+- `index.html` - Main user interface
+- `script.js` - Handles user interactions and API requests
+- `app.py` - Flask application with endpoint routing
+- `main.py` - Core logic for scraping and API integration
+- `helpers.py` - Contains utility functions for data gathering
+
+## Development Notes
+
+This project was created as a final project for CS50, with a focus on implementing web scraping techniques and API integration rather than building a statistically superior prediction model. While betting sites and professional analysts use more sophisticated models, this project serves as a practical application of programming concepts learned during the course.
+
+Future improvements could include:
+- Integration with betting odds data
+- More sophisticated statistical analysis
+- Additional data sources for more accurate predictions
